@@ -12,11 +12,11 @@ app.get('/', (_req, res) => {
 app.get('/about', (_req, res) => {
   res.render('pages/about')
 })
-app.get('/collections', (_req, res) => {
-  res.render('pages/collections')
+app.get('/collection', (_req, res) => {
+  res.render('pages/collection')
 })
-app.get('/details/:id', (_req, res) => {
-  res.render('pages/details')
+app.get('/detail/:id', (_req, res) => {
+  res.render('pages/detail')
 })
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
