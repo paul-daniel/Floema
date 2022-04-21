@@ -1,11 +1,10 @@
 import * as prismicH from '@prismicio/helpers'
-import { client } from './config/prismicConfig.js'
+import { client } from './config/prismicConfig.mjs'
 import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import express from 'express'
 dotenv.config()
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
 const port = 3000
@@ -28,6 +27,7 @@ app.get('/', async (_req, res) => {
   try {
     const document = await client.getSingle('home')
     console.log(document)
+    res.render('pages/home')
   } catch (error) {
     console.error(error)
   }

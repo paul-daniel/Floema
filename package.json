@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "backend:build": "node app.js",
-    "backend:dev": "nodemon app.js",
+    "backend:build": "node app.mjs",
+    "backend:dev": "nodemon app.mjs",
     "frontend:build": "webpack --progress --config webpack.config.build.js",
     "frontend:development": "webpack serve --progress --config webpack.config.development.js",
     "start": "concurrently --kill-others \"npm run backend:dev\" \"npm run frontend:development\""
   },
-  "type":"module",
   "author": "Paul Daniel Tchatchouang Ouokam",
   "license": "ISC",
   "devDependencies": {

@@ -8,7 +8,6 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev'
 
 const dirApp = path.join(__dirname, 'app')
-const dirShared = path.join(__dirname, 'shared')
 const dirStyles = path.join(__dirname, 'styles')
 const dirNode = 'node_modules'
 module.exports = {
@@ -20,7 +19,6 @@ module.exports = {
   resolve: {
     modules: [
       dirApp,
-      dirShared,
       dirStyles,
       dirNode
     ],
@@ -32,14 +30,14 @@ module.exports = {
       IS_DEVELOPMENT
     }),
 
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: './shared',
-          to: ''
-        }
-      ]
-    }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: './shared',
+    //       to: ''
+    //     }
+    //   ]
+    // }),
 
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -71,11 +69,11 @@ module.exports = {
         }
       },
 
-      {
-        test: /.m?js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
+      // {
+      //   test: /.m?js$/,
+      //   loader: 'babel-loader',
+      //   exclude: /node_modules/
+      // },
 
       {
         test: /\.scss$/,
