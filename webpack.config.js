@@ -23,7 +23,8 @@ module.exports = {
       dirShared,
       dirStyles,
       dirNode
-    ]
+    ],
+    mainFields: ['browser', 'main']
   },
 
   plugins: [
@@ -68,6 +69,12 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+
+      {
+        test: /.m?js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
 
       {
