@@ -18,6 +18,10 @@ const routes = [
     type: 'home',
     path: '/home',
   },
+  {
+    type: 'about',
+    path: '/about',
+  },
 ]
 
 export const client = prismic.createClient(repoName, {

@@ -25,15 +25,29 @@ app.set('view engine', 'pug')
 app.get('/', async (_req, res) => {
   // Here we are retrieving the first document from your API endpoint
   try {
-    const document = await client.getSingle('home')
-    console.log(document)
-    res.render('pages/home')
+    const home = await client.getSingle('home')
+    const meta = await client.getSingle('metadata')
+    res.render('pages/home', {
+      home,
+      meta
+    })
   } catch (error) {
     console.error(error)
   }
 })
-app.get('/about', (_req, res) => {
-  res.render('pages/about')
+app.get('/about', async (_req, res) => {
+  try {
+    const about = await client.getSingle('about')
+    const meta = await client.getSingle('metadata')
+    console.log({about,meta})
+    res.render('pages/about', {
+      about,
+      meta
+    })
+  } catch (error) {
+    console.error(error)
+  }
+  
 })
 app.get('/collection', (_req, res) => {
   res.render('pages/collection')
