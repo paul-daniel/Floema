@@ -16,12 +16,12 @@ const accessToken = process.env.PRISMIC_ACCESS_TOKEN // If your repo is private,
 const routes = [
   {
     type: 'home',
-    path: '/home',
+    path: '/home'
   },
   {
     type: 'about',
-    path: '/about',
-  },
+    path: '/about'
+  }
 ]
 
 export const client = prismic.createClient(repoName, {

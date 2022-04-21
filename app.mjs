@@ -3,6 +3,7 @@ import { client } from './config/prismicConfig.mjs'
 import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import PrismicDom from 'prismic-dom'
 import express from 'express'
 dotenv.config()
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -16,6 +17,8 @@ app.use((req, res, next) => {
   res.locals.ctx = {
     prismicH
   }
+
+  res.locals.PrismicDom = PrismicDom
   next()
 })
 
@@ -39,7 +42,6 @@ app.get('/about', async (_req, res) => {
   try {
     const about = await client.getSingle('about')
     const meta = await client.getSingle('metadata')
-    console.log({about,meta})
     res.render('pages/about', {
       about,
       meta
@@ -47,13 +49,20 @@ app.get('/about', async (_req, res) => {
   } catch (error) {
     console.error(error)
   }
-  
 })
 app.get('/collection', (_req, res) => {
   res.render('pages/collection')
 })
-app.get('/detail/:id', (_req, res) => {
-  res.render('pages/detail')
+app.get('/detail/:uid', async (req, res) => {
+  // To get the UID
+  // req.params.uid
+  const detail = await client.getByUID('product', req.params.uid)
+  const meta = await client.getSingle('metadata')
+  console.log(detail)
+  res.render('pages/detail', {
+    meta,
+    detail
+  })
 })
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

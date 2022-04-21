@@ -49,6 +49,7 @@
     "express": "^4.17.3",
     "node-fetch": "^3.2.3",
     "nodemon": "^2.0.15",
+    "prismic-dom": "^2.2.7",
     "pug": "^3.0.2"
   }
 }
