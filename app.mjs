@@ -17,9 +17,11 @@ app.use((req, res, next) => {
   res.locals.ctx = {
     prismicH
   }
-
   res.locals.PrismicDom = PrismicDom
   next()
+  res.locals.Numbers = index => {
+    return index === 0 ? 'One' : index === 1 ? 'Two' : index === 2 ? 'Three' : index === 3 ? 'Four' : ''
+  }
 })
 
 app.set('views', path.join(__dirname, 'views'))
@@ -50,8 +52,18 @@ app.get('/about', async (_req, res) => {
     console.error(error)
   }
 })
-app.get('/collection', async (_req, res) => {
-  res.render('pages/collection')
+app.get('/collections', async (_req, res) => {
+  const meta = await client.getSingle('metadata')
+  const collections = await client.getAllByType('collection', {
+    fetchLinks: 'product.image'
+  })
+  const home = await client.getSingle('home')
+  console.log(home)
+  res.render('pages/collection', {
+    meta,
+    collections,
+    home
+  })
 })
 app.get('/detail/:uid', async (req, res) => {
   // To get the UID
