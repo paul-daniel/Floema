@@ -57,32 +57,40 @@ app.get('/about', async (_req, res) => {
   }
 })
 app.get('/collections', async (_req, res) => {
-  const meta = await client.getSingle('metadata')
-  const collections = await client.getAllByType('collection', {
-    fetchLinks: 'product.image'
-  })
-  const home = await client.getSingle('home')
-  const preloader = await client.getSingle('preloader')
-  res.render('pages/collection', {
-    meta,
-    collections,
-    home,
-    preloader
-  })
+  try {
+    const meta = await client.getSingle('metadata')
+    const collections = await client.getAllByType('collection', {
+      fetchLinks: 'product.image'
+    })
+    const home = await client.getSingle('home')
+    const preloader = await client.getSingle('preloader')
+    res.render('pages/collection', {
+      meta,
+      collections,
+      home,
+      preloader
+    })
+  } catch (error) {
+    console.error(error)
+  }
 })
 app.get('/detail/:uid', async (req, res) => {
-  // To get the UID
+  try {
+    // To get the UID
   // req.params.uid
-  const detail = await client.getByUID('product', req.params.uid, {
-    fetchLinks: 'collection.title'
-  })
-  const meta = await client.getSingle('metadata')
-  const preloader = await client.getSingle('preloader')
-  res.render('pages/detail', {
-    meta,
-    detail,
-    preloader
-  })
+    const detail = await client.getByUID('product', req.params.uid, {
+      fetchLinks: 'collection.title'
+    })
+    const meta = await client.getSingle('metadata')
+    const preloader = await client.getSingle('preloader')
+    res.render('pages/detail', {
+      meta,
+      detail,
+      preloader
+    })
+  } catch (error) {
+    console.error(error)
+  }
 })
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
