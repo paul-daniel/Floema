@@ -32,9 +32,11 @@ app.get('/', async (_req, res) => {
   try {
     const home = await client.getSingle('home')
     const meta = await client.getSingle('metadata')
+    const preloader = await client.getSingle('preloader')
     res.render('pages/home', {
       home,
-      meta
+      meta,
+      preloader
     })
   } catch (error) {
     console.error(error)
@@ -44,9 +46,11 @@ app.get('/about', async (_req, res) => {
   try {
     const about = await client.getSingle('about')
     const meta = await client.getSingle('metadata')
+    const preloader = await client.getSingle('preloader')
     res.render('pages/about', {
       meta,
-      about
+      about,
+      preloader
     })
   } catch (error) {
     console.error(error)
@@ -58,11 +62,12 @@ app.get('/collections', async (_req, res) => {
     fetchLinks: 'product.image'
   })
   const home = await client.getSingle('home')
-  console.log(home)
+  const preloader = await client.getSingle('preloader')
   res.render('pages/collection', {
     meta,
     collections,
-    home
+    home,
+    preloader
   })
 })
 app.get('/detail/:uid', async (req, res) => {
@@ -72,9 +77,11 @@ app.get('/detail/:uid', async (req, res) => {
     fetchLinks: 'collection.title'
   })
   const meta = await client.getSingle('metadata')
+  const preloader = await client.getSingle('preloader')
   res.render('pages/detail', {
     meta,
-    detail
+    detail,
+    preloader
   })
 })
 app.listen(port, () => {
