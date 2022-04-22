@@ -43,22 +43,23 @@ app.get('/about', async (_req, res) => {
     const about = await client.getSingle('about')
     const meta = await client.getSingle('metadata')
     res.render('pages/about', {
-      about,
-      meta
+      meta,
+      about
     })
   } catch (error) {
     console.error(error)
   }
 })
-app.get('/collection', (_req, res) => {
+app.get('/collection', async (_req, res) => {
   res.render('pages/collection')
 })
 app.get('/detail/:uid', async (req, res) => {
   // To get the UID
   // req.params.uid
-  const detail = await client.getByUID('product', req.params.uid)
+  const detail = await client.getByUID('product', req.params.uid, {
+    fetchLinks: 'collection.title'
+  })
   const meta = await client.getSingle('metadata')
-  console.log(detail)
   res.render('pages/detail', {
     meta,
     detail
