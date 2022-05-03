@@ -2,6 +2,8 @@
 .detail {
   @extend %cover;
   @extend %center;
+
+  background-color: $color-rosy-brown;
 }
 
 .detail__wrapper {
@@ -13,6 +15,7 @@
   width: 55.4rem;
   height: 78.2rem;
   position: relative;
+  margin-right: 8.3rem;
 }
 
 .detail__media__image{
@@ -21,7 +24,7 @@
 }
 
 .detail__information{
-  
+  color: $color-white;
 }
 
 .detail__information__collection{
@@ -30,6 +33,8 @@
 
 .detail__information__title{
   @extend %title-120;
+
+  width: 43.2rem;
 }
 
 .detail__information__content {
@@ -41,17 +46,23 @@
 }
 
 .detail__information__highlight {
-
+  margin-top:6.3rem;
+  &:not(:first-child){
+    margin-bottom: 4rem;
+  }
 }
 
 .detail__information__highlight__icon{
-
+  width: 2.475rem;
+  height: 2.475rem;
+  margin-right: 4.4rem;
 }
 
 
 
 .detail__information__highlight__text{
-
+  @extend %description-16;
+  display: inline-block;
 }
 
 .detail__information__list{
@@ -60,18 +71,34 @@
 
 
 .detail__information__item {
-
+  display: flex;
+  margin-top:6.3rem;
+  &:not(:first-child){
+    margin-bottom: 4rem;
+  }
 }
 
 .detail__information__item__title{
+  @extend %description-12;
 
+  width: 5.9rem;
+  margin-right: 4.2rem;
 }
 
 .detail__information__item__description{
+  @extend %description-16;
 
+  display: inline-block;
+  width: 71.9rem;
 }
 
 
 .detail__information__link{
+  @extend %title-30;
 
+  text-decoration: none;
+  color: $color-white;
+  &:hover{
+    text-decoration: underline;
+  }
 }
