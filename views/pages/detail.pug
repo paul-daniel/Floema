@@ -10,7 +10,7 @@ block content
         img.detail__media__image(alt=detail.data.image.alt src=detail.data.image.url)
 
       .detail__information
-        p.detail__information__collection=detail.data.collection.data.title
+        p.detail__information__collection=`${detail.data.collection.data.title} Collection`
 
         h1.detail__information__title=detail.data.title
 

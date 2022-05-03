@@ -29,12 +29,14 @@
 
 .detail__information__collection{
   @extend %description-12;
+
+  margin-bottom: 3rem
 }
 
 .detail__information__title{
   @extend %title-120;
 
-  width: 43.2rem;
+  max-width: 43.2rem;
 }
 
 .detail__information__content {
@@ -46,6 +48,8 @@
 }
 
 .detail__information__highlight {
+  display: flex;
+  align-items: center;
   margin-top:6.3rem;
   &:not(:first-child){
     margin-bottom: 4rem;
@@ -53,8 +57,10 @@
 }
 
 .detail__information__highlight__icon{
-  width: 2.475rem;
-  height: 2.475rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
   margin-right: 4.4rem;
 }
 
@@ -73,9 +79,7 @@
 .detail__information__item {
   display: flex;
   margin-top:6.3rem;
-  &:not(:first-child){
-    margin-bottom: 4rem;
-  }
+   
 }
 
 .detail__information__item__title{
@@ -96,9 +100,6 @@
 .detail__information__link{
   @extend %title-30;
 
-  text-decoration: none;
-  color: $color-white;
-  &:hover{
-    text-decoration: underline;
-  }
+  display: inline-block    ;
+  margin-top: 3rem;
 }
