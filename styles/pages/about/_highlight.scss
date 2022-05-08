@@ -9,12 +9,31 @@
   &:last-child{
     margin-bottom: 0;
   }
+
+  &:nth-child(4) {
+    margin-top: -35rem;
+    .about__hightlight__wrapper{
+      width: 90.3rem;
+      height: 104rem;
+      .about__highlight__media {
+        height: 52.8rem;
+        width: 36rem;
+        position: absolute;
+      }
+
+      .about__highlight__title{
+        top: 36%;
+        left: 62%;
+        text-transform: lowercase;
+      }
+    }
+  }
 }
 
 .about__hightlight__wrapper{
   position: relative;
   width: 144rem;
-  height: 105.6rem;;
+  height: 105.6rem;
   margin: 0 auto;
 }
 
@@ -23,7 +42,7 @@
   
   text-transform: uppercase;
   position: absolute;
-  top: 6rem;
+  top: 8rem;
   left: 50%;
   transform: translateX(-50%);
   width: 9.6rem;
@@ -32,8 +51,12 @@
 
 .about__highlight__title{
   @extend %title-200;
-  transform: rotate(-90deg);
+  
   padding-bottom: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotate(-90deg) ;
 }
 
 .about__highlight__media {
