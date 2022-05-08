@@ -1,6 +1,7 @@
 .about__content {
-  margin: 20rem 0;
+  margin: 20rem auto;
   overflow: hidden;
+  width: 125.8rem;
 
   &:first-child{
     margin-top: 0;
@@ -12,19 +13,34 @@
 }
 
 .about__content__wrapper {
-  
+  display: flex;
+  justify-content: center;
+
+  &.Right{
+    & .about__content__media{
+      order: -1;
+    }
+
+    .about__content__label{
+      order: 3;
+    }
+  }
 }
 
 .about__content__label{
+  @extend %description-12;
   
+  width: 18rem;
 }
 
-.about__contnent__description{
+.about__content__description{
+  @extend %description-16;
   
+  width: 36.2rem;
 }
 
 .about__content__media {
-  
+  margin-left: 7.2rem;
 }
 
 .about__content__media__image{

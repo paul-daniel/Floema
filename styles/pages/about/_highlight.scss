@@ -12,21 +12,48 @@
 }
 
 .about__hightlight__wrapper{
-  
+  position: relative;
+  width: 144rem;
+  height: 105.6rem;;
+  margin: 0 auto;
 }
 
 .about__highlight__label{
+  @extend %description-12;
   
+  text-transform: uppercase;
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9.6rem;
+  text-align: center;
 }
 
 .about__highlight__title{
-  
+  @extend %title-200;
+  transform: rotate(-90deg);
+  padding-bottom: 2rem;
 }
 
 .about__highlight__media {
+  height: 76.12rem;
+  width: 54rem;
+  position: absolute;
   
+  &:not(:last-child){
+    top: 0;
+    left:0;
+  }
+
+  &:last-child {
+    right: 0;
+    bottom: 0;
+  }
 }
 
 .about__highlight__media__image{
-  
+  @extend %cover;
+
+  object-fit: cover;
 }
