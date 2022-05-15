@@ -51,7 +51,7 @@
 
 .home__gallery__media {
   position: absolute;
-  visibility: hidden;
+  //visibility: hidden;
 }
 
 .home__gallery__media__image {
@@ -75,6 +75,5 @@
   transform: translateX(-50%);
   text-align: center;
   text-transform: uppercase;
-  z-index: 2;
-
+  z-index: 3;
 }

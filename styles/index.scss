@@ -1,7 +1,7 @@
 @import 'utils/functions';
+@import 'utils/variables';
 @import 'utils/mixins';
 @import 'utils/responsive';
-@import 'utils/variables';
 @import 'utils/vendors';
 
 @import 'shared/titles';
@@ -13,6 +13,8 @@
 @import 'base/base';
 
 @import 'components/preloader';
+
+@import 'layout/navigation';
 
 @import 'pages/about/about';
 @import 'pages/about/content';

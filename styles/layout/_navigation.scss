@@ -1,17 +1,21 @@
 .navigation{
-
-}
-
-.navigation__wrapper{
-
+  @extend %cover;
+  
+  color : $color-white;
+  z-index: 3;
 }
 
 .navigation__link{
-
+  height: 2rem;
+  width: 12.8rem;
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  @extend %title-20;
 }
 
 .navigation__link__icon{
-
+  display: block;
 }
 
 .navigation__list{
@@ -19,10 +23,12 @@
 }
 
 .navigation__list__item{
-
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
 }
 
 .navigation__list__link{
-
+  @extend %title-20;
 }
 

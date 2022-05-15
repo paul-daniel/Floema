@@ -4,8 +4,9 @@
 
   background-color: $color-contessa;
   color: $color-white;
-  
   text-align: center;
+  display: none;
+  z-index : 5;
 }
 
 .preloader__text{
