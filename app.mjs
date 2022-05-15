@@ -27,15 +27,18 @@ const handleLinkResolver = doc => {
   }
 }
 
-const handleRequest = async () => {
+const handleRequest = async (req) => {
   try {
     const meta = await client.getSingle('metadata')
     const preloader = await client.getSingle('preloader')
     const navigation = await client.getSingle('navigation')
+    const nextPage = (req?.path === '/' || req?.path.includes('detail') || req?.path.includes('collections')) ? '/about' : '/collections'
+    console.log(navigation.data.list)
     return {
       meta,
       navigation,
-      preloader
+      preloader,
+      nextPage
     }
   } catch (error) {
     console.error('handle Request failed', error)
@@ -65,12 +68,13 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
 // EXPRESS ROUTES
-app.get('/', async (_req, res) => {
+app.get('/', async (req, res) => {
   // Here we are retrieving the first document from your API endpoint
   try {
     const home = await client.getSingle('home')
     const collections = await client.getAllByType('collection')
-    const defaults = await handleRequest()
+    const defaults = await handleRequest(req)
+    console.log(defaults)
     res.render('pages/home', {
       ...defaults,
       home,
@@ -81,11 +85,11 @@ app.get('/', async (_req, res) => {
   }
 })
 
-app.get('/about', async (_req, res) => {
+app.get('/about', async (req, res) => {
   try {
     const about = await client.getSingle('about')
     // console.log(about.data?.body)
-    const defaults = await handleRequest()
+    const defaults = await handleRequest(req)
     res.render('pages/about', {
       ...defaults,
       about
@@ -95,13 +99,13 @@ app.get('/about', async (_req, res) => {
   }
 })
 
-app.get('/collections', async (_req, res) => {
+app.get('/collections', async (req, res) => {
   try {
     const collections = await client.getAllByType('collection', {
       fetchLinks: 'product.image'
     })
     const home = await client.getSingle('home')
-    const defaults = await handleRequest()
+    const defaults = await handleRequest(req)
     res.render('pages/collection', {
       ...defaults,
       collections,
