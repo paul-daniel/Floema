@@ -79,7 +79,7 @@
 .detail__information__item {
   display: flex;
   margin-top:6.3rem;
-   
+
 }
 
 .detail__information__item__title{
@@ -102,4 +102,28 @@
 
   display: inline-block    ;
   margin-top: 3rem;
+}
+
+.detail__button{
+  @extend %description-14;
+
+  width: 28.8rem;
+  height: 6rem;
+  color: #F9F1E7;
+  // border: 1px solid #fff;
+  // border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.detail__button__icon{
+  @extend %cover;
 }
