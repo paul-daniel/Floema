@@ -20,6 +20,14 @@ a{
   text-decoration: none;
 }
 
+button {
+  background: none;
+  outline: inherit;
+  outline: none;
+  cursor: pointer;
+  border:none;
+}
+
 img{
   vertical-align: middle;
 }
