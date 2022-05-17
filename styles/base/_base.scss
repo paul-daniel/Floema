@@ -5,7 +5,11 @@
 }
 
 html {
-  font-size: calc(100vw / 1920 * 7.8)
+  font-size: calc(100vw / 1920 * 7.8);
+
+  @include media('<phone'){
+    font-size: calc(100vw / 750 * 7.8);
+  }
 }
 
 body{
