@@ -56,7 +56,8 @@
   }
 }
 
-.detail__information__highlight__icon{
+.detail__information__highlight__icontainer{
+  display:inline-block;
   border: 1px solid currentColor;
   border-radius: 50%;
   width: 4rem;
