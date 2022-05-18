@@ -1,6 +1,6 @@
 .about__content {
   overflow: hidden;
-  
+
 
   &:nth-of-type(4){
     margin: 20rem 0 20rem 24.8rem;
@@ -18,13 +18,13 @@
       height: 52rem;
     }
   }
-  
+
 
   &:not(:nth-of-type(4)):not(:nth-of-type(6)){
     margin: 20rem auto;
     width: 125.8rem;
   }
-  
+
   &:first-child{
     margin-top: 0;
   }
@@ -33,7 +33,31 @@
     margin-bottom: 0;
   }
 
-  
+  @include media('<phone'){
+    &:nth-of-type(4){
+      margin: 0;
+
+      & .about__content__media{
+        width: 96rem;
+        height: 60rem;
+      }
+    }
+
+    &:nth-of-type(6){
+      margin:0;
+      & .about__content__media{
+        width: 84.2rem;
+        height: 52rem;
+      }
+    }
+
+
+    &:not(:nth-of-type(4)):not(:nth-of-type(6)){
+      margin: 0;
+      width: 125.8rem;
+    }
+  }
+
 }
 
 .about__content__wrapper {
@@ -46,7 +70,16 @@
     & > .about__content__media{
       margin-right: 12.3rem;
     }
-    
+  }
+
+  @include media('<phone'){
+    flex-direction: column-reverse;
+    &.Right{
+      flex-direction: column-reverse;
+      & > .about__content__media{
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -56,14 +89,14 @@
 
 .about__content__label{
   @extend %description-12;
-  
+
   text-transform: uppercase;
   width: 18rem;
 }
 
 .about__content__description{
   @extend %description-16;
-  
+
   width: 36.2rem;
 
   p:not(:first-child){
@@ -77,7 +110,7 @@
   height: 76rem;
   position: relative;
   margin-left: 18rem;
-  
+
 
   &--1{
     width: 53.8rem;
@@ -96,6 +129,6 @@
 
 .about__content__media__image{
   @extend %cover;
-  
+
   object-fit: cover;
 }
