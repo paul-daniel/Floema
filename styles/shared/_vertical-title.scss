@@ -15,10 +15,13 @@
   text-transform: uppercase;
   transform: rotate(90deg);
   text-align: center;
+  @include media('<phone'){
+    line-height: 1.5;
+  }
 }
 
 %vertical__title{
   @extend %title-200;
-  
+
   padding-top: 2rem;
 }
