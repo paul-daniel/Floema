@@ -6,6 +6,10 @@
 
   &:first-child{
     margin-top: 0;
+
+    // @include media('<phone'){
+    //   padding-top: 20rem;
+    // }
   }
 
   &:last-child{
@@ -32,6 +36,11 @@
   position: relative;
   margin: 0 4rem;
   width: 38.9rem;
+
+  @include media('<phone'){
+    width: 36.4rem;
+    height: 51.4rem;
+  }
 }
 
 .about__gallery__media__image{

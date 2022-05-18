@@ -1,6 +1,9 @@
 .about__content {
   overflow: hidden;
 
+  @include media('<phone'){
+    overflow :visible;
+  }
 
   &:nth-of-type(4){
     margin: 20rem 0 20rem 24.8rem;
@@ -36,9 +39,9 @@
   @include media('<phone'){
     &:nth-of-type(4){
       margin: 0;
-
+      
       & .about__content__media{
-        width: 96rem;
+        width: 107rem;
         height: 60rem;
       }
     }
@@ -46,8 +49,8 @@
     &:nth-of-type(6){
       margin:0;
       & .about__content__media{
-        width: 84.2rem;
-        height: 52rem;
+        width: 107rem;
+        height: 65rem;
       }
     }
 
@@ -55,6 +58,7 @@
     &:not(:nth-of-type(4)):not(:nth-of-type(6)){
       margin: 0;
       width: 100%;
+      
     }
   }
 
@@ -97,6 +101,11 @@
 
   text-transform: uppercase;
   width: 18rem;
+
+  @include media('<phone'){
+    font-size : 2.6rem;
+    width: 34rem;
+  }
 }
 
 .about__content__description{
@@ -106,6 +115,11 @@
 
   p:not(:first-child){
     margin-top: 4rem;
+  }
+
+  @include media('<phone'){
+    font-size : 3.2rem;
+    width : 50rem;
   }
 }
 
@@ -122,6 +136,11 @@
     height: 80.8rem;
     position: relative;
     margin-left: 18rem;
+
+    @include media('<phone'){
+      width: 83.9rem;
+      height: 126.4rem;
+    }
   }
 
   &--2{
@@ -131,6 +150,13 @@
     margin-left: 18rem;
   }
 
+  &--7{
+    @include media('<phone'){
+      width: 83.9rem;
+      height: 126.4rem;
+      transform: rotate(-3deg);
+    }
+  }
   @include media('<phone'){
     margin-left : 0;
   }

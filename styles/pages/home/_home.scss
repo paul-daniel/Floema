@@ -22,7 +22,7 @@
   }
 
   &:after{
-    background: linear-gradient(to top, rgba(201,113,100,1) 0%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to top, rgba(201,113,100,1) 0%,rgba(255,255,255,0) 30%, rgba(255,255,255,0) 100%);
     bottom: 0;
   }
 }
