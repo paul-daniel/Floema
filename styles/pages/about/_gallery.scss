@@ -11,6 +11,11 @@
   &:last-child{
     margin-bottom: 0;
   }
+
+  @include media('<phone'){
+    margin-bottom : 20rem;
+    margin-top: -20rem;
+  }
 }
 
 .about__gallery__wrapper {

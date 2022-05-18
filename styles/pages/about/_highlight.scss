@@ -27,6 +27,10 @@
         text-transform: lowercase;
       }
     }
+
+    @include media('<phone'){
+      margin-top: 0rem;
+    }
   }
 }
 
