@@ -23,6 +23,8 @@
   margin-right: 8.3rem;
 
   @include media('<phone'){
+    width: 68.4rem;
+    height: 83.2rem;
     margin:0;
   }
 }
@@ -36,7 +38,7 @@
   color: $color-white;
 
   @include media('<phone'){
-    padding-top: 7rem;
+    padding-top: 3rem;
   }
 }
 
@@ -97,9 +99,9 @@
   padding: .5rem;
 
   @include media('<phone'){
-    width: 9.2rem;
-    height: 9.2rem;
-    padding: 1.5rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    padding: 1rem;
   }
 }
 
@@ -175,11 +177,18 @@
   justify-content: center;
   position: absolute;
   bottom: 5rem;
-  left: 50%;
+  right: 40%;
   transform: translateX(-50%);
   text-align: center;
   text-transform: uppercase;
   z-index: 3;
+
+  @include media('<phone'){
+    height: 8rem;
+    font-size : 2.3rem;
+    bottom: 4rem;
+    right: -14rem;
+  }
 }
 
 .detail__button__icon{

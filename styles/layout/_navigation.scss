@@ -13,6 +13,10 @@
   top: 4rem;
   left: 4rem;
   @extend %title-20;
+
+  @include media('<phone'){
+    font-size: 4rem;
+  }
 }
 
 .navigation__link__icon{
@@ -31,5 +35,8 @@
 
 .navigation__list__link{
   @extend %title-20;
+  @include media('<phone'){
+    font-size: 4rem;
+  }
 }
 
